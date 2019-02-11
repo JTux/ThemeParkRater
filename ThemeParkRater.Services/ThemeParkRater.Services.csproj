@@ -75,12 +75,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ThemeParkService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ThemeParkRater.Data\ThemeParkRater.Data.csproj">
+      <Project>{3DFB7C90-4552-4FD9-97EC-79EE41C7B500}</Project>
+      <Name>ThemeParkRater.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThemeParkRater.Models\ThemeParkRater.Models.csproj">
+      <Project>{5D2EBDE6-0EA2-4B1B-8F34-6422B48EBDD1}</Project>
+      <Name>ThemeParkRater.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
