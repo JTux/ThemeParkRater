@@ -89,21 +89,6 @@ namespace ThemeParkRater.Services
             }
         }
 
-        private float CalculateGoodness(int parkId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query = ctx.Ratings.Where(r => r.ThemeParkID == parkId).ToList();
-
-                float totalGoodness = 0;
-                foreach(var rating in query)
-                {
-                    totalGoodness += rating.GoodnessLevel;
-                }
-                totalGoodness /= query.Count;
-
-                return totalGoodness;
-            }
-        }
+        
     }
 }

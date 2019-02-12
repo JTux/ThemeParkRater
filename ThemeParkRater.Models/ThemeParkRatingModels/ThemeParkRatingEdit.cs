@@ -5,22 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ThemeParkRater.Data
+namespace ThemeParkRater.Models.ThemeParkRatingModels
 {
-    public class ThemeParkRating
+    public class ThemeParkRatingEdit
     {
-        [Key]
-        public int ThemeParkRatingID { get; set; }
-
         [Required]
-        public Guid OwnerID { get; set; }
+        public int ThemeParkRatingID { get; set; }
 
         [Required]
         public float GoodnessLevel { get; set; }
 
         [Required]
         public int ThemeParkID { get; set; }
-
-        public virtual ThemePark ThemePark { get; set; }
     }
 }
