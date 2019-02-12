@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ThemeParkRater.Models.ThemeParkModels.ThemeParkListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Review", "Create", "ThemeParkRating", null, null) |
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ThemeParkID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThemeParkName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThemeParkState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GoodnessLevel)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThemeParkID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThemeParkName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThemeParkState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GoodnessLevel)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ThemeParkID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ThemeParkID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ThemeParkID })
+            </td>
+        </tr>
+    }
+
+</table>
