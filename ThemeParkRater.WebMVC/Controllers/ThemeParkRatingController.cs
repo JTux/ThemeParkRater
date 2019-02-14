@@ -41,7 +41,7 @@ namespace ThemeParkRater.WebMVC.Controllers
 
             if (service.CreateRating(model))
             {
-                return RedirectToAction("Index","ThemePark");
+                return RedirectToAction("Index", "ThemePark");
             }
 
             var parkService = new ThemeParkService();
@@ -57,6 +57,47 @@ namespace ThemeParkRater.WebMVC.Controllers
         {
             var service = GetRatingService();
             var model = service.GetRatingsByParkID(id);
+            return View(model);
+        }
+
+        // GET: ThemeParkRating/Edit/{id}
+        public ActionResult Edit(int id)
+        {
+            var service = GetRatingService();
+            var detail = service.GetRatingByID(id);
+            var model = new ThemeParkRatingEdit
+            {
+                ThemeParkRatingID = detail.ThemeParkRatingID,
+                ThemeParkID = detail.ThemeParkID,
+                GoodnessLevel = detail.GoodnessLevel,
+            };
+
+            var parkService = new ThemeParkService();
+            var parkList = parkService.GetThemeParks();
+
+            ViewBag.ThemeParkID = new SelectList(parkList, "ThemeParkID", "ThemeParkName", model.ThemeParkID);
+
+            return View(model);
+        }
+
+        // POST: ThemeParkRating/Edit/{model}
+        [HttpPost]
+        public ActionResult Edit(ThemeParkRatingEdit model)
+        {
+            var parkService = new ThemeParkService();
+            var parkList = parkService.GetThemeParks();
+
+            ViewBag.ThemeParkID = new SelectList(parkList, "ThemeParkID", "ThemeParkName", model.ThemeParkID);
+
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var service = GetRatingService();
+
+            if (service.EditThemeParkRating(model))
+                return RedirectToAction("Index", "ThemePark");
+
+            ModelState.AddModelError("", "Could not update rating");
             return View(model);
         }
 

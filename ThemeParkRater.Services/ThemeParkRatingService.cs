@@ -63,7 +63,7 @@ namespace ThemeParkRater.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Ratings.Single(r => r.ThemeParkID == id);
+                var entity = ctx.Ratings.Single(r => r.ThemeParkRatingID == id);
 
                 var model = new ThemeParkRatingDetail
                 {
