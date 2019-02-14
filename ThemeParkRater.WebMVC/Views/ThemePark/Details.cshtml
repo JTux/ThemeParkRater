@@ -1,0 +1,58 @@
+﻿@model ThemeParkRater.Models.ThemeParkModels.ThemeParkDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ThemeParkDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ThemeParkID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThemeParkID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThemeParkName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThemeParkName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThemeParkCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThemeParkCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThemeParkState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThemeParkState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoodnessLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoodnessLevel)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ThemeParkID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

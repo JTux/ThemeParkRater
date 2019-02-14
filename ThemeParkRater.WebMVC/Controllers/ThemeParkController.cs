@@ -44,6 +44,12 @@ namespace ThemeParkRater.WebMVC.Controllers
         }
 
         // GET: ThemePark/Detail/{id}
+        public ActionResult Details(int id)
+        {
+            var service = new ThemeParkService();
+            var model = service.GetParkByID(id);
+            return View(model);
+        }
 
         // GET: ThemePark/Edit/{id}
 
