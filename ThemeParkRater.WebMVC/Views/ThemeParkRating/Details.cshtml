@@ -19,14 +19,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ThemeParkID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ThemeParkID)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.ThemeParkName)
         </dt>
 
@@ -38,5 +30,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ThemeParkRatingID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Details", "ThemePark", new { id = Model.ThemeParkID }, null)
 </p>
