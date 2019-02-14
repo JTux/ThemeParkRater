@@ -246,6 +246,7 @@
     <Content Include="Views\ThemePark\Create.cshtml" />
     <Content Include="Views\ThemeParkRating\Create.cshtml" />
     <Content Include="Views\ThemePark\Details.cshtml" />
+    <Content Include="Views\ThemePark\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

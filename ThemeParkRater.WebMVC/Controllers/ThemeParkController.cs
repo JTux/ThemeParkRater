@@ -52,8 +52,41 @@ namespace ThemeParkRater.WebMVC.Controllers
         }
 
         // GET: ThemePark/Edit/{id}
+        public ActionResult Edit(int id)
+        {
+            var service = new ThemeParkService();
+
+            var detail = service.GetParkByID(id);
+            var model = new ThemeParkEdit
+            {
+                ThemeParkID = detail.ThemeParkID,
+                ThemeParkName = detail.ThemeParkName,
+                ThemeParkCity = detail.ThemeParkCity,
+                ThemeParkState = detail.ThemeParkState
+            };
+
+            return View(model);
+        }
 
         // POST: ThemePark/Edit/{id}
+        [HttpPost]
+        public ActionResult Edit(ThemeParkEdit model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var service = new ThemeParkService();
+
+            if (service.EditThemePark(model))
+            {
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Theme park could not be edited.");
+            return View(model);
+        }
 
         // GET: ThemePark/Delete/{id}
 
