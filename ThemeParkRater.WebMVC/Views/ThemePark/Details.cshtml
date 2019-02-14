@@ -1,4 +1,5 @@
-﻿@model ThemeParkRater.Models.ThemeParkModels.ThemeParkDetail
+﻿@using ThemeParkRater.Models.ThemeParkRatingModels
+@model ThemeParkRater.Models.ThemeParkModels.ThemeParkDetail
 
 @{
     ViewBag.Title = "Details";
@@ -51,6 +52,30 @@
         </dd>
 
     </dl>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GoodnessLevel)
+            </th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (ThemeParkRatingListItem item in ViewBag.Ratings)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GoodnessLevel)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "ThemeParkRating", new { id = item.ThemeParkRatingID }, null) |
+                    @Html.ActionLink("Details", "Details", "ThemeParkRating", new { id = item.ThemeParkRatingID }, null) |
+                    @Html.ActionLink("Delete", "Delete", "ThemeParkRating", new { id = item.ThemeParkRatingID }, null)
+                </td>
+            </tr>
+        }
+
+    </table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ThemeParkID }) |

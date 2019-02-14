@@ -56,7 +56,7 @@ namespace ThemeParkRater.WebMVC.Controllers
         public ActionResult Details(int id)
         {
             var service = GetRatingService();
-            var model = service.GetRatingsByParkID(id);
+            var model = service.GetRatingByID(id);
             return View(model);
         }
 

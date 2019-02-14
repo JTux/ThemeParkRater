@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -48,6 +49,12 @@ namespace ThemeParkRater.WebMVC.Controllers
         {
             var service = new ThemeParkService();
             var model = service.GetParkByID(id);
+
+            var ratingService = new ThemeParkRatingService(Guid.Parse(User.Identity.GetUserId()));
+            var ratings = ratingService.GetRatingsByParkID(id);
+
+            ViewBag.Ratings = ratings;
+
             return View(model);
         }
 
