@@ -89,7 +89,28 @@ namespace ThemeParkRater.WebMVC.Controllers
         }
 
         // GET: ThemePark/Delete/{id}
+        public ActionResult Delete(int id)
+        {
+            var service = new ThemeParkService();
+
+            var model = service.GetParkByID(id);
+
+            return View(model);
+        }
 
         // POST: ThemePark/Delete/{id}
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeletePark(int id)
+        {
+            var service = new ThemeParkService();
+
+            if (service.DeleteThemePark(id))
+            {
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Delete", new { id });
+        }
     }
 }
