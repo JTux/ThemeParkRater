@@ -101,6 +101,29 @@ namespace ThemeParkRater.WebMVC.Controllers
             return View(model);
         }
 
+        // GET: ThemeParkRating/Delete/{id}
+        public ActionResult Delete(int id)
+        {
+            var service = GetRatingService();
+            var model = service.GetRatingByID(id);
+            return View(model);
+        }
+
+        // POST: ThemeParkRating/Delete/{id}
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeleteRating(int id)
+        {
+            var service = GetRatingService();
+
+            if (service.DeleteThemeParkRating(id))
+                return RedirectToAction("Index", "ThemePark");
+
+            ModelState.AddModelError("", "Could not delete Rating");
+
+            return RedirectToAction("Delete", new { id });
+        }
+
         // Helper method that gets our user ID and creates a ThemeParkService with it
         private ThemeParkRatingService GetRatingService()
         {

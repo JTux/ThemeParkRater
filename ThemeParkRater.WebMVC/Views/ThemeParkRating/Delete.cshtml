@@ -1,0 +1,50 @@
+﻿@model ThemeParkRater.Models.ThemeParkRatingModels.ThemeParkRatingDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<div>
+    <h4>ThemeParkRatingDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ThemeParkRatingID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThemeParkRatingID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoodnessLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoodnessLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThemeParkID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThemeParkID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThemeParkName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThemeParkName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ThemeParkRatingID }) |
+    @Html.ActionLink("Back to List", "Index", "ThemePark")
+</p>
