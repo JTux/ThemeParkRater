@@ -17,6 +17,7 @@ namespace ThemeParkRater.WebMVC.Controllers
             return View();
         }
 
+        // GET: ThemeParkRating/Create
         public ActionResult Create()
         {
             var parkService = new ThemeParkService();
@@ -27,6 +28,7 @@ namespace ThemeParkRater.WebMVC.Controllers
             return View();
         }
 
+        // POST: ThemeParkRating/Create
         [HttpPost]
         public ActionResult Create(ThemeParkRatingCreate model)
         {
@@ -50,6 +52,15 @@ namespace ThemeParkRater.WebMVC.Controllers
             return View(model);
         }
 
+        // GET: ThemeParkRating/Details/{id}
+        public ActionResult Details(int id)
+        {
+            var service = GetRatingService();
+            var model = service.GetRatingsByParkID(id);
+            return View(model);
+        }
+
+        // Helper method that gets our user ID and creates a ThemeParkService with it
         private ThemeParkRatingService GetRatingService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
