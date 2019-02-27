@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using ThemeParkRater.WebAPI.Providers;
 using ThemeParkRater.WebAPI.Models;
+using ThemeParkRater.Data;
 
 namespace ThemeParkRater.WebAPI
 {
